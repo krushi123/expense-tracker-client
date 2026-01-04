@@ -4,11 +4,12 @@ import ExpenseTable from '../components/Table'
 import FloatingAddButtonSize from '../components/FloatingAddButton'
 import axios from 'axios'
 import { useEffect } from 'react'
+import { baseurl } from '../api'
 export default function View() {
   const[allExpense,setAllExpense]=useState([])
   const fetchAllExpense = async()=>{
     try {
-      const res=await axios.get(`http://localhost:7000/api/expense/view-all`);
+      const res=await axios.get(`${baseurl}/api/expense/view-all`);
      // console.log(res.data);
      if(res.data.success){
       setAllExpense(res.data.expense);

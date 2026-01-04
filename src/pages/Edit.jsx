@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from"axios"
 import { toast } from 'react-toastify'
+import { baseurl } from '../api'
 export default function Add() {
  // const params=useParams()
   //console.log(params.id)
@@ -35,7 +36,7 @@ export default function Add() {
     console.log(formData);
     //console.log(formData);
     setIsLoading(true);
-    const res=await axios.put(`http://localhost:7000/api/expense/edit/${expenseId}`,formData);
+    const res=await axios.put(`${baseurl}/api/expense/edit/${expenseId}`,formData);
     try {
       //console.log(res)
       if (res.data.success) {
