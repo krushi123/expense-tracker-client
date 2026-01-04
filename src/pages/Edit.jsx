@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import axios from"axios"
 import { toast } from 'react-toastify'
 import { baseurl } from '../api'
-export default function Add() {
+export default function Edit() {
  // const params=useParams()
   //console.log(params.id)
   const{expenseId}=useParams()
@@ -17,7 +17,7 @@ export default function Add() {
   const[isLoading,setIsLoading]=useState(false);
   const fetchSingleExpense=async()=>{
     try {
-      const res=await axios.get(`http://localhost:7000/api/expense/view/${expenseId}`)
+      const res=await axios.get(`${baseurl}/api/expense/view/${expenseId}`)
       //console.log(res.data)
       if (res.data.success) {
         setFormData(res.data.expenseDetails)
